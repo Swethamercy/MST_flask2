@@ -2,7 +2,7 @@ from flask import Flask, jsonify, redirect, render_template, request, url_for
 from flask.helpers import stream_with_context
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder='msttemplates')
+app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
 db = SQLAlchemy(app)
