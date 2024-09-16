@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, redirect, render_template, request, url_for
 from flask.helpers import stream_with_context
 from flask_sqlalchemy import SQLAlchemy
+import random
 
 app = Flask(__name__)
 
