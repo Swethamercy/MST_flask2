@@ -47,6 +47,16 @@ def get_book(book_id):
         return render_template('book_detail.html', book=book)
     return jsonify({'message': 'Book not found'}), 404
 
+#adding New feature
+#Recommending a rondom book from the existing db
+@app.route('/books/recommend', methods=['GET'])
+def recommend_book():
+    books = db.session.query(Book).all()
+    if books:
+        random_book = random.choice(books)
+        return render_template('book_details.html', book=random_book)  # Reusing the existing 'book_details.html'
+    return jsonify({'message': 'No books available'}), 404
+
 
 # Delete a specific book
 @app.route('/books/<int:book_id>/delete', methods=['POST'])
